@@ -36,6 +36,11 @@ class Train:
         return self.description()
 
     def speed_up(self, how_much: int):
+        """
+        This function allows to increase the speed.
+        :param how_much: the speed should be increase
+        :return: the new speed and the fuel level
+        """
         if how_much > self.speed * 0.75:
             self.speed = self.speed
 

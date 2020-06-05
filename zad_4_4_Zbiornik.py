@@ -24,12 +24,12 @@ class Zbiornik:
         self.temperatura = temperatura
 
 
-    def description(self):
+    def opis(self):
             return f'Zbiornik z {self.ilosc_wody} litrami wody t = {self.temperatura} (pojemnosc: {self.pojemnosc} l).'
 
 
     def __str__(self):
-        return self.description()
+        return self.opis()
 
 
     def dolej(self, ilosc, temperatura_1):

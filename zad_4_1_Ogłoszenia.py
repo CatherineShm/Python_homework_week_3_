@@ -3,11 +3,22 @@
 # Zaproponuj klasę, w której obiektach będzie się zapisywać ogłoszenia (takie jak w serwisie internetowym z ogłoszeniami).
 # Najlepiej, aby klasa `Ogloszenie` opisywała rzeczy, które posiada każde ogłoszenie, m.in. tytuł, opis, cenę,
 # dane kontaktowe sprzedawcy.
+from abc import abstractmethod
+
 
 class Advertissement:
-    def __init__(self,objective, object, description, price, vendors_name, phone):
+    def __init__(self,objective, subject, description, price, vendors_name, phone):
+        """
+        This function get the data about the subject of the advertissement.
+        :param objective:
+        :param subject:
+        :param description:
+        :param price:
+        :param vendors_name:
+        :param phone:
+        """
         self.objective = objective
-        self.object = object
+        self.subject = subject
         self.description = description
         self.price = price
         self.vendors_name = vendors_name
@@ -16,7 +27,7 @@ class Advertissement:
 
     def get_info(self) -> str:
         return (f"-> Cel: {self.objective}\n"
-                f"-> Temat ogłoszenia: {self.object}\n"
+                f"-> Temat ogłoszenia: {self.subject}\n"
                 f"-> Opis: {self.description}\n"
                 f"-> Cena: {self.price}\n"
                 f"-> Sprzedający: {self.vendors_name}, tel.: {self.phone}")
@@ -27,5 +38,7 @@ class Advertissement:
     def __str__(self):
         return self.get_info()
 
-advert_1 = Advertissement("sprzedaż", "samochód", "używany, w dobrym stanie", "5000 zl", "Jan", "222 333 444")
-advert_1.print_info()
+
+    @abstractmethod
+    def details(self):
+        pass
